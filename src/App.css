@@ -1,15 +1,31 @@
-.app-container{
-    display: flex;
+.app-container {
+  display: flex;
 }
-.content{
-    width: 100%;
+.content {
+  width: 100%;
 }
-.sidebar{
-    min-height: 100vh;
+.sidebar {
+  min-height: 100vh;
 }
-.post-card{
-    margin: 20px 50px;
+.post-card {
+  margin: 20px 50px;
+  width: 30rem;
 }
-.hashtag{
-    margin: 0 3px;
+.hashtag {
+  margin: 0 3px;
+}
+.reactions {
+  width: 100%;
+  margin-top: 20px;
+  span {
+    font-style: 22px;
+    font-weight: bold;
+    color: green;
+  }
+}
+
+.create-post {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
 }

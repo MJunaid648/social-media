@@ -26,23 +26,27 @@ const DEFAULT_POST_LIST = [
 ];
 
 const postListReducer = (currPostList, action) => {
-    switch (action.type) {
-      case "ADD_POST":
-        return [...currPostList, action.payload];
-      case "DELETE_POST":
-        return currPostList.filter(post => post.id !== action.payload);
-      default:
-        return currPostList;
-    }
-  };
+  switch (action.type) {
+    case "ADD_POST":
+      return [action.payload, ...currPostList];
+    case "DELETE_POST":
+      return currPostList.filter((post) => post.id !== action.payload);
+    default:
+      return currPostList;
+  }
+};
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(
     postListReducer,
     DEFAULT_POST_LIST
   );
 
-  const addPost = () => {};
-  const deletePost = () => {};
+  const addPost = (newPost) => {
+    dispatchPostList({ type: "ADD_POST", payload: newPost });
+  };
+  const deletePost = (id) => {
+    dispatchPostList({ type: "DELETE_POST", payload: id });
+  };
 
   return (
     <PostList.Provider value={{ postList, addPost, deletePost }}>
